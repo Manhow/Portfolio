@@ -147,12 +147,10 @@ class RankingDataset(torch.utils.data.Dataset):
         return len(self.index_pairs_or_triplets)
 
     def _tokenized_text_to_index(self, tokenized_text: List[str]) -> List[int]:
-        # допишите ваш код здесь
         res = [self.vocab.get(i, self.oov_val) for i in tokenized_text]
         return res
 
     def _convert_text_idx_to_token_idxs(self, idx: int) -> List[int]:
-        # допишите ваш код здесь
         curr_text = self.idx_to_text_mapping[str(idx)]
         tokenized_text = self.preproc_func(curr_text)
         idxs = self._tokenized_text_to_index(tokenized_text)
@@ -165,9 +163,7 @@ class RankingDataset(torch.utils.data.Dataset):
 class TrainTripletsDataset(RankingDataset):
 
     def __getitem__(self, idx):
-        # допишите ваш код здесь
-        curr_triplet = self.index_pairs_or_triplets[
-            idx]  # ['100141','75743','61487',2]
+        curr_triplet = self.index_pairs_or_triplets[idx]
 
         query_start = int(curr_triplet[0])
         doc_start_1 = int(curr_triplet[1])
@@ -189,9 +185,7 @@ class TrainTripletsDataset(RankingDataset):
 
 class ValPairsDataset(RankingDataset):
 
-    def __getitem__(self, idx):  # 'Generates one sample of data'
-        # допишите ваш код здесь
-
+    def __getitem__(self, idx):
         curr_pair = self.index_pairs_or_triplets[idx]  # ['100141', '75743', 2]
 
         query_start = int(curr_pair[0])
@@ -269,25 +263,18 @@ def collate_fn(batch_objs: List[Union[Dict[str, torch.Tensor],
 
 class Solution:
 
-    def __init__(
-        self,
-        glue_qqp_dir: str,
-        glove_vectors_path: str,
-        min_token_occurancies:
-        int = 1,  # минимальное количество раз, которое слово (токен) должно появиться в выборке, чтобы не быть отброшенным (низкочастотным)
-        random_seed: int = 0,
-        emb_rand_uni_bound: float = 0.2,  # 0.2: U(−0.2,0.2)
-        freeze_knrm_embeddings:
-        bool = True,  # True - обучать эмбеддинги не нужно
-        knrm_kernel_num: int = 21,  # коилчество ядер в  KNRM
-        knrm_out_mlp: List[int] = [],  # конфигурация MLP-слоя 
-        dataloader_bs:
-        int = 1024,  # размер батча при обучении и валидации модели.
-        train_lr:
-        float = 0.001,  # Learning Rate, использующийся при обучении модели KNRM.
-        change_train_loader_ep:
-        int = 10  #  как часто менять/перегенерировать выборку для тренировки модели.
-    ):
+    def __init__(self,
+                 glue_qqp_dir: str,
+                 glove_vectors_path: str,
+                 min_token_occurancies: int = 1,
+                 random_seed: int = 0,
+                 emb_rand_uni_bound: float = 0.2,
+                 freeze_knrm_embeddings: bool = True,
+                 knrm_kernel_num: int = 21,
+                 knrm_out_mlp: List[int] = [],
+                 dataloader_bs: int = 1024,
+                 train_lr: float = 0.001,
+                 change_train_loader_ep: int = 10):
         self.glue_qqp_dir = glue_qqp_dir
         self.glove_vectors_path = glove_vectors_path
         self.glue_train_df = self.get_glue_df('train')
@@ -361,14 +348,10 @@ class Solution:
         for i in range(0, len(list_of_df)):
             texts.append(list_of_df[i]["text_left"])
             texts.append(list_of_df[i]["text_right"])
-        flat_text = list([item for sublist in texts
-                          for item in sublist])  # flatten all texts
-        flat_text_unqiue = list(dict(
-            Counter(flat_text)).keys())  # find unique sentences
-        res = [self.simple_preproc(val)
-               for val in flat_text_unqiue]  # tokinize unique sentences
-        flat_list = [val for sublist in res
-                     for val in sublist]  # flatten sentences
+        flat_text = list([item for sublist in texts for item in sublist])
+        flat_text_unqiue = list(dict(Counter(flat_text)).keys())
+        res = [self.simple_preproc(val) for val in flat_text_unqiue]
+        flat_list = [val for sublist in res for val in sublist]
         all_tokens = self._filter_rare_words(dict(Counter(flat_list)),
                                              min_occurancies)
         return list(all_tokens.keys())
@@ -390,7 +373,7 @@ class Solution:
         embedds_dic = self._read_glove_embeddings(file_path)
         N = len(self.all_tokens)
         D = len(embedds_dic['key'])
-        emb_matrix = np.zeros((N + 2, D))  # + PAD and OOV for edge cases
+        emb_matrix = np.zeros((N + 2, D))
         unk_words = []
         unk_words.append('PAD')
         unk_words.append('OOV')
@@ -410,9 +393,8 @@ class Solution:
                 emb_matrix[i + 2, :] = _get_embedding(rand_uni_bound, D)
             else:
                 emb_matrix[i + 2, :] = embedds_dic[self.all_tokens[i]]
-            vocab[self.all_tokens[
-                i]] = i + 2  # по слову будет браться строка в emb_matrix
-        emb_matrix[1, :] = _get_embedding(rand_uni_bound, D)  # OOV value
+            vocab[self.all_tokens[i]] = i + 2
+        emb_matrix[1, :] = _get_embedding(rand_uni_bound, D)
         return emb_matrix, vocab, unk_words
 
     def build_knrm_model(
@@ -429,7 +411,7 @@ class Solution:
 
     def sample_data_for_train_iter(self, inp_df: pd.DataFrame,
                                    seed: int) -> List[List[Union[str, float]]]:
-        # допишите ваш код здесь
+
         groups = inp_df[['id_left', 'id_right', 'label']].groupby('id_left')
         pairs_w_labels = []
         np.random.seed(seed)

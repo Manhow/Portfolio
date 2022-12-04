@@ -189,12 +189,10 @@ class Solution:
         pass
 
     def _tokenized_text_to_index(self, tokenized_text: List[str]) -> List[int]:
-        # допишите ваш код здесь
         res = [self.vocab.get(i, self.vocab['OOV']) for i in tokenized_text]
         return res
 
     def _convert_text_idx_to_token_idxs(self, curr_text) -> List[int]:
-        # допишите ваш код здесь
         tokenized_text = self.simple_preproc(curr_text)
         idxs = self._tokenized_text_to_index(tokenized_text)
         return idxs
