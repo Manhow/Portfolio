@@ -237,10 +237,8 @@ def query():
         suggested_sents = []
         for i in range(I.shape[0]):
             tmp = []
-            tmp_keys = []
             for j in range(len(I[i])):
                 tmp.append(sol.candidate_text[I[i, j]])
-                tmp_keys.append(sol.keys_mapping[I[i, j]])
             suggested_sents.append(tmp)
         # KNRM
         dict_len = 30
