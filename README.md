@@ -1,5 +1,5 @@
 # Portfolio
-Hi there, here you can find my portfolio projects that will allow to reveal my skills in a practical way:
+Hello, here is a collection of my portfolio projects that showcase my skills in a hands-on manner:
 1. [**k-nrm**](https://arxiv.org/pdf/1706.06613.pdf)
 
 This project is a small-scale web service built with Flask, aimed at discovering and presenting similar questions. The system takes a list of queries as input, calculates the top 100 candidates for each question from the [faiss](https://github.com/facebookresearch/faiss) index, then ranks them using k-nrm and outputs the top k most relevant candidates. [GloVe](https://nlp.stanford.edu/projects/glove/) vectors were used as text embeddings. The k-nrm model was trained on the widely used [Quora Question Pairs (QQP) dataset](https://gluebenchmark.com/tasks) dataset.
