@@ -11,4 +11,5 @@ For future research, you may want to consider studying the article [ColBERT](htt
 3. Uplift tree
 
 Keep in mind, the presence of a single tree suggests the existence of a dense forest...Build a gradient boosting model!
-
+(https://towardsdatascience.com/decision-tree-from-scratch-in-python-46e99dfea775)
+(https://github.com/uber/causalml/blob/master/causalml/inference/tree/causal/causaltree.py)
