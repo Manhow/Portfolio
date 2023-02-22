@@ -1,5 +1,5 @@
 # Portfolio
-Hi there, here you can find my portfolio projects that will allow to reveal my skills in a practical way:
+Hello, here is a collection of my portfolio projects that showcase my skills in a hands-on manner:
 1. [**k-nrm**](https://arxiv.org/pdf/1706.06613.pdf)
 
 This project is a small-scale web service built with Flask, aimed at discovering and presenting similar questions. The system takes a list of queries as input, calculates the top 100 candidates for each question from the [faiss](https://github.com/facebookresearch/faiss) index, then ranks them using k-nrm and outputs the top k most relevant candidates. [GloVe](https://nlp.stanford.edu/projects/glove/) vectors were used as text embeddings. The k-nrm model was trained on the widely used [Quora Question Pairs (QQP) dataset](https://gluebenchmark.com/tasks) dataset.
@@ -7,6 +7,9 @@ The ranking model demonstrated impressive accuracy, with a [NDCG](https://toward
 
 For future research, you may want to consider studying the article [ColBERT](https://arxiv.org/pdf/2004.12832.pdf), which combines the concepts of k-nrm and [BERT](https://arxiv.org/pdf/1810.04805.pdf) models. It is noteworthy and quite impressive.
 
+2. Uplift tree
 
 
-
+Keep in mind, the presence of a single tree suggests the existence of a dense forest...Build a gradient boosting model!
+(https://towardsdatascience.com/decision-tree-from-scratch-in-python-46e99dfea775)
+(https://github.com/uber/causalml/blob/master/causalml/inference/tree/causal/causaltree.py)
