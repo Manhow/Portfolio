@@ -7,9 +7,12 @@ The ranking model demonstrated impressive accuracy, with a [NDCG](https://toward
 
 For future research, you may want to consider studying the article [ColBERT](https://arxiv.org/pdf/2004.12832.pdf), which combines the concepts of k-nrm and [BERT](https://arxiv.org/pdf/1810.04805.pdf) models. It is noteworthy and quite impressive.
 
-2. **Uplift tree**
+2. [**Uplift tree**](https://link.springer.com/content/pdf/10.1007/s10115-011-0434-0.pdf)
 
 The segmentation of consumers according to the net effect of marketing impact allows a business to focus the advertising budget on customers who are ready to carry out the target action only if there is communication.
+
+
+This class implements uplift tree with DeltaDeltaP criterion, contains classic fit and predict methods. The input receives features X, the target variable Y, treatment/control flag T. Features are calculated for the period before the company’s running, target variable for the promotion period. Start promotion is accompanied by sending sms or push notifications
 
 Keep in mind, the presence of a single tree suggests the existence of a dense forest...Build a gradient boosting model!
 (https://towardsdatascience.com/decision-tree-from-scratch-in-python-46e99dfea775)
