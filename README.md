@@ -12,7 +12,7 @@ For future research, you may want to consider studying the article [ColBERT](htt
 There are four basic types of customer: buy in any case, buy in communication, not buy in any way, not buy in communication. The segmentation of consumers according to the net effect of marketing impact allows a business to focus the advertising budget on customers who are ready to carry out the target action only if there is communication. It suggests itself to calculate the casual effect for each buyer, but in fact, this cannot be done, since we cannot send an offer to one user and not send it at the same time. Instead of causal effect, let us predict the uplift of the variable Y: How much more the client reacts with exposure compared to the reaction without exposure. Roughly speaking, the average increase in Y when communicating. Our goal is to build a upmodel that will try to predict uplift. This class implements uplift tree with DeltaDeltaP criterion, contains classic fit and predict methods. The input receives features X, the target variable Y, treatment/control flag T. Features are calculated for the period before the company’s running, target variable for the promotion period. Start promotion is accompanied by sending sms or push notifications.
 
 
-![image](https://user-images.githubusercontent.com/74931073/220766820-338470de-5b8b-4f9b-be64-2553b1dfecaf.png)
+![image](https://user-images.githubusercontent.com/74931073/220766820-338470de-5b8b-4f9b-be64-2553b1dfecaf.png = 250x250)
 
 Keep in mind, the presence of a single tree suggests the existence of a dense forest...Build a gradient boosting model!
 (https://towardsdatascience.com/decision-tree-from-scratch-in-python-46e99dfea775)
