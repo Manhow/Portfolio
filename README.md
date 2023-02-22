@@ -7,8 +7,8 @@ The ranking model demonstrated impressive accuracy, with a [NDCG](https://toward
 
 For future research, you may want to consider studying the article [ColBERT](https://arxiv.org/pdf/2004.12832.pdf), which combines the concepts of k-nrm and [BERT](https://arxiv.org/pdf/1810.04805.pdf) models. It is noteworthy and quite impressive.
 
-2. --
-3. Uplift tree
+2. Uplift tree
+
 
 Keep in mind, the presence of a single tree suggests the existence of a dense forest...Build a gradient boosting model!
 (https://towardsdatascience.com/decision-tree-from-scratch-in-python-46e99dfea775)
