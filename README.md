@@ -38,3 +38,5 @@ Let's break down the main components of the code:
  * build_pipeline: This function takes a configuration dictionary and builds an sklearn pipeline according to this configuration.
 
 This code allows you to define how you calculate features and how you transform data using configuration dictionaries. This way, you can easily switch between different feature calculators and transformers without having to change the code that calculates or transforms data. All you need to do is change the configuration dictionary.
+
+Usefull link: [series of articles](https://farmi.medium.com/ml-feature-stores-a-casual-tour-fc45a25b446a),  [good book about architecture](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164), [feature engineering framework](https://docs.feast.dev/).
