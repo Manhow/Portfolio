@@ -16,6 +16,7 @@ There are four primary types of customers: those who make purchases regardless o
 Additional information: [Basic decision tree methods](https://towardsdatascience.com/decision-tree-from-scratch-in-python-46e99dfea775), [pylift](https://pylift.readthedocs.io/en/latest/), [causalml](https://causalml.readthedocs.io/en/latest/about.html).
 
 3. [**Feature Store**](https://www.infoq.com/presentations/michelangelo-palette-uber/)
+
 You've dedicated time to implement a feature calculation, only to discover it's already been done by a colleague within your team or a neighboring one. You've utilized this feature in model training, but due to the extensive computation time, it's not feasible for production use. Despite this, there remain a few areas where feature store could still be beneficial. The given code is about creating a flexible data processing pipeline using Dask for feature calculation and sklearn for transformation. 
 
 Let's break down the main components of the code:
