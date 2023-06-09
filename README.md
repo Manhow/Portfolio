@@ -36,3 +36,5 @@ Let's break down the main components of the code:
  * TRANSFORMER_REFERENCE: This is another global dictionary used to register transformer classes or functions. Similar to CALCER_REFERENCE, you can add new transformers to this dictionary using the register_transformer function, and create instances of registered transformers using the create_transformer function.
 
  * build_pipeline: This function takes a configuration dictionary and builds an sklearn pipeline according to this configuration.
+
+This code allows you to define how you calculate features and how you transform data using configuration dictionaries. This way, you can easily switch between different feature calculators and transformers without having to change the code that calculates or transforms data. All you need to do is change the configuration dictionary.
