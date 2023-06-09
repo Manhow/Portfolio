@@ -23,16 +23,16 @@ Let's break down the main components of the code:
 
  * FeatureCalcer: This is an abstract base class (ABC) which serves as a template for creating classes that calculate features. Any class derived from it needs to implement a compute method. It has a reference to an Engine instance to access data tables.
 
-DateFeatureCalcer: This class extends FeatureCalcer and is initialized with a date. It does not implement the abstract compute method and should be extended further to do so.
+ * DateFeatureCalcer: This class extends FeatureCalcer and is initialized with a date. It does not implement the abstract compute method and should be extended further to do so.
 
-CALCER_REFERENCE: This global dictionary is used to register feature calculator classes. You can add a new class to this dictionary using the register_calcer function, and then create an instance of a registered class using the create_calcer function.
+ * CALCER_REFERENCE: This global dictionary is used to register feature calculator classes. You can add a new class to this dictionary using the register_calcer function, and then create an instance of a registered class using the create_calcer function.
 
-compute_features: This function takes an Engine instance and a configuration dictionary, creates instances of feature calculators according to this configuration, calculates features using these calculators, and joins the results into a single DataFrame.
+ * compute_features: This function takes an Engine instance and a configuration dictionary, creates instances of feature calculators according to this configuration, calculates features using these calculators, and joins the results into a single DataFrame.
 
-FunctionalTransformer: This is a custom sklearn transformer that takes any function as an argument and applies it to the data.
+ * FunctionalTransformer: This is a custom sklearn transformer that takes any function as an argument and applies it to the data.
 
-functional_transformer: This function is a helper to easily create instances of FunctionalTransformer.
+ * functional_transformer: This function is a helper to easily create instances of FunctionalTransformer.
 
-TRANSFORMER_REFERENCE: This is another global dictionary used to register transformer classes or functions. Similar to CALCER_REFERENCE, you can add new transformers to this dictionary using the register_transformer function, and create instances of registered transformers using the create_transformer function.
+ * TRANSFORMER_REFERENCE: This is another global dictionary used to register transformer classes or functions. Similar to CALCER_REFERENCE, you can add new transformers to this dictionary using the register_transformer function, and create instances of registered transformers using the create_transformer function.
 
-build_pipeline: This function takes a configuration dictionary and builds an sklearn pipeline according to this configuration.
+ * build_pipeline: This function takes a configuration dictionary and builds an sklearn pipeline according to this configuration.
