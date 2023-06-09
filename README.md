@@ -7,7 +7,7 @@ The ranking model demonstrated impressive accuracy, with a [NDCG](https://toward
 
 For future research, you may want to consider studying the article [ColBERT](https://arxiv.org/pdf/2004.12832.pdf), which combines the concepts of k-nrm and [BERT](https://arxiv.org/pdf/1810.04805.pdf) models. It is noteworthy and quite impressive.
 
-Usage tips. Put the [GLoVE](https://nlp.stanford.edu/projects/glove/) embedding into data/ (170 Mbytes) to have docker add the file to the environment variable
+Usage tips. Put the [GLoVE](https://nlp.stanford.edu/projects/glove/) embeddings into data/ (170 Mbytes) to have docker add the file to the environment variable
 
 2. [**Uplift tree**](https://link.springer.com/content/pdf/10.1007/s10115-011-0434-0.pdf)
 
